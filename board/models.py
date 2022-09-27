@@ -2,6 +2,7 @@ from django.db import models
 from django.core.validators import RegexValidator
 
 from common.models import User
+from datetime import datetime
 
 
 # Create your models here.
@@ -16,6 +17,7 @@ class Board(models.Model):
         help_text='해시태그는 #로 시작되고 , 로 구분됩니다. ex) #맛집,#서울,#브런치 카페,#주말, … '
     )
 
+    create_datetime = models.DateTimeField(default=datetime.now())
     view_count = models.PositiveIntegerField(default=0)
     like = models.ManyToManyField(User, related_name='likes', blank=True)
     like_count = models.PositiveIntegerField(default=0)
