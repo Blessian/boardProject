@@ -12,14 +12,14 @@ class BoardCreateSerializer(serializers.ModelSerializer):
 class BoardListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Board
-        fields = ['id', 'writer', 'title', 'hash_tag', 'create_datetime', 'like_count', 'view_count']
+        fields = ['id', 'writer', 'title', 'hash_tag', 'create_date', 'like_count', 'view_count']
 
 
 class BoardRetrieveUpdateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Board
         fields = '__all__'
-        read_only_fields = ['id', 'writer', 'create_datetime', 'like', 'like_count', 'view_count', 'is_active']
+        read_only_fields = ['id', 'writer', 'create_date', 'like', 'like_count', 'view_count', 'is_active']
 
 
 class BoardUpdateIsActiveSerializer(serializers.ModelSerializer):
